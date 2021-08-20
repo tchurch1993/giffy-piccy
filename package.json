@@ -1,6 +1,7 @@
 {
   "name": "giffy-piccy",
   "version": "0.1.0",
+  "description": "This program takes in PNGs and stiches them together into a GIF",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.3",
