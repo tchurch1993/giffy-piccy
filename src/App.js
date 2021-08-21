@@ -11,13 +11,8 @@ import {
 } from "@material-ui/core/styles";
 import { green, red } from "@material-ui/core/colors";
 import GIFEncoder from "gif-encoder-2";
-import { createCanvas } from "canvas";
-import Canvas from "canvas";
-import { createWriteStream, readdir } from "fs";
-import { promisify } from "util";
+import { createCanvas } from "canvas-prebuilt";
 import path from "path";
-import streamToBlob from "stream-to-blob";
-import { Stream } from "stream";
 
 const thumb = {
   display: "inline-flex",

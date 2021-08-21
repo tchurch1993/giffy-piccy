@@ -1,6 +1,7 @@
 {
   "name": "giffy-piccy",
   "version": "0.1.0",
+  "author": "BigJuice",
   "description": "This program takes in PNGs and stiches them together into a GIF",
   "license": "MIT",
   "private": true,
@@ -9,31 +10,47 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "canvas": "^2.8.0",
     "electron-squirrel-startup": "^1.0.0",
     "gif-encoder-2": "^1.0.5",
-    "gif.js.optimized": "^1.0.1",
     "gifshot": "^0.4.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-dropzone": "^11.3.4",
     "react-grid-gallery": "^0.5.5",
     "react-scripts": "4.0.3",
-    "stream-to-blob": "^2.0.1",
     "wait-on": "^6.0.0",
     "web-vitals": "^1.0.1"
   },
   "main": "public/electron.js",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "concurrently -k \"yarn start\" \"yarn:electron\"",
-    "electron": "wait-on tcp:3000 && electron-forge start"
+    "electron": "wait-on tcp:3000 && electron .",
+    "electron-pack": "build --em.main=build/electron.js",
+    "electron:build": "yarn build && electron-builder -c.extraMetadata.main=build/electron.js"
   },
+  "build": {
+    "extends": null,
+    "appId": "com.example.electron-cra",
+    "files": [
+      "dist/**/*",
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "nsisWeb": {
+
+    }
+  },
+  "homepage": "./",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -58,7 +75,9 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.59",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.59",
     "@electron-forge/maker-zip": "^6.0.0-beta.59",
+    "concurrently": "^6.2.1",
     "electron": "^13.2.1",
+    "electron-builder": "^22.11.7",
     "electron-is-dev": "^2.0.0"
   },
   "config": {
