@@ -22,12 +22,11 @@ jobs:
       - name: Install canvas-prebuilt
         run: yarn add canvas-prebuilt
         #continue on error
-        continue-on-error: true
 
 
+      - name: Electron Builder Modified
+        uses: tchurch1993/action-electron-builder@v1
 
-      - name: Build/release Electron app
-        run: node ./../../builds.js
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
