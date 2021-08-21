@@ -25,8 +25,9 @@ jobs:
         continue-on-error: true
 
 
+
       - name: Build/release Electron app
-        uses: samuelmeuli/action-electron-builder@v1
+        run: node ./../../builds.js
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
