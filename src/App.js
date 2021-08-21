@@ -4,15 +4,11 @@ import Dropzone from "react-dropzone";
 import gifshot from "gifshot";
 import { Button, CircularProgress } from "@material-ui/core";
 import {
-  createTheme,
-  withStyles,
-  makeStyles,
-  ThemeProvider,
+  withStyles
 } from "@material-ui/core/styles";
-import { green, red } from "@material-ui/core/colors";
+import { red } from "@material-ui/core/colors";
 import GIFEncoder from "gif-encoder-2";
 import { createCanvas } from "canvas";
-import path from "path";
 
 const thumb = {
   display: "inline-flex",
@@ -48,24 +44,24 @@ const ColorButton = withStyles((theme) => ({
   },
 }))(Button);
 
-const useStyles = makeStyles((theme) => ({
-  margin: {
-    margin: theme.spacing(1),
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   margin: {
+//     margin: theme.spacing(1),
+//   },
+// }));
 
-const theme = createTheme({
-  palette: {
-    primary: green,
-  },
-});
+// const theme = createTheme({
+//   palette: {
+//     primary: green,
+//   },
+// });
 
 class App extends React.Component {
   constructor() {
     super();
     this.onDrop = (files) => {
       files.map((file) => {
-        Object.assign(file, { preview: URL.createObjectURL(file) });
+        return Object.assign(file, { preview: URL.createObjectURL(file) });
       });
 
       //create gif with file names
@@ -102,12 +98,6 @@ class App extends React.Component {
 
         });
 
-        // base GIF filepath on which algorithm is being used
-        const dstPath = path.join(
-          __dirname,
-          "output",
-          `intermediate-${algorithm}.gif`
-        );
         // create a write stream for GIF data
         //const writeStream = createWriteStream(dstPath);
         // when stream closes GIF is created so resolve promise
