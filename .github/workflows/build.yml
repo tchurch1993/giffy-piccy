@@ -19,6 +19,11 @@ jobs:
         with:
           node-version: 14
 
+      - uses: numworks/setup-msys2@v1
+        with:
+          update: true
+          path-type: inherit
+
       - name: build canvas
         run: |
           npm install -g node-gyp
