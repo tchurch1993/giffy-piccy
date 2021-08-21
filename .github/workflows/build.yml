@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [windows-latest]
 
     steps:
       - name: Check out Git repository
@@ -18,6 +18,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+
+      - name: build canvas
+        run: |
+          npm install -g node-gyp
+          npm install --ignore-scripts
+          msys2do . prebuild/Windows/preinstall.sh
+          msys2do cp prebuild/Windows/binding.gyp binding.gyp
+          msys2do node-gyp configure
+          msys2do node-gyp rebuild -j 2
+
+      - name: Bundle canvas
+        run: msys2do . prebuild/Windows/bundle.sh
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
