@@ -24,7 +24,7 @@
   "main": "public/electron.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "yarn add canvis-prebuilt && react-scripts build",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "test": "react-scripts test",
@@ -46,8 +46,8 @@
     "directories": {
       "buildResources": "assets"
     },
-    "nsisWeb": {
-
+    "win": {
+      "target": "nsis-web"
     }
   },
   "homepage": "./",
