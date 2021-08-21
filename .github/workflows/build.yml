@@ -25,7 +25,7 @@ jobs:
 
 
       - name: Electron Builder Modified
-        uses: tchurch1993/action-electron-builder@v1
+        uses: tchurch1993/action-electron-builder@v1.1
 
         with:
           # GitHub token, automatically provided to the action
