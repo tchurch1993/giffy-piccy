@@ -21,7 +21,7 @@ jobs:
 
       - name: Install canvas-prebuilt
         run: yarn add canvas-prebuilt
-        #continue on error
+        continue_on_error: true
 
 
       - name: Electron Builder Modified
