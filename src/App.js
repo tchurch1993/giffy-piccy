@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
 import GIFEncoder from "gif-encoder-2";
-import { createCanvas } from "canvas-prebuilt";
+import { createCanvas } from "canvasTest";
 
 const thumb = {
   display: "inline-flex",

@@ -19,9 +19,6 @@ jobs:
         with:
           node-version: 14
 
-      - name: install canvas
-        run: yarn add canvas-prebuilt
-
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
