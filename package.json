@@ -10,7 +10,6 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "canvas": "^2.8.0",
     "electron-squirrel-startup": "^1.0.0",
     "gif-encoder-2": "^1.0.5",
     "gifshot": "^0.4.5",
@@ -26,14 +25,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "concurrently -k \"yarn start\" \"yarn:electron\"",
     "electron": "wait-on tcp:3000 && electron .",
-    "electron-pack": "build --em.main=build/electron.js",
-    "electron:build": "npm run build && electron-builder -c.extraMetadata.main=build/electron.js"
+    "electron:build": "yarn build && electron-builder -c.extraMetadata.main=build/electron.js"
   },
   "build": {
     "extends": null,
@@ -48,7 +44,7 @@
       "buildResources": "assets"
     },
     "win": {
-      "target": "nsis-web"
+      "target": "nsis"
     }
   },
   "homepage": "./",
