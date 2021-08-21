@@ -19,22 +19,8 @@ jobs:
         with:
           node-version: 14
 
-      - uses: numworks/setup-msys2@v1
-        with:
-          update: true
-          path-type: inherit
-
-      - name: build canvas
-        run: |
-          npm install -g node-gyp
-          npm install --ignore-scripts
-          msys2do . prebuild/Windows/preinstall.sh
-          msys2do cp prebuild/Windows/binding.gyp binding.gyp
-          msys2do node-gyp configure
-          msys2do node-gyp rebuild -j 2
-
-      - name: Bundle canvas
-        run: msys2do . prebuild/Windows/bundle.sh
+      - name: install canvas
+        run: yarn add canvas-prebuilt 
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1

@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core/styles";
 import { green, red } from "@material-ui/core/colors";
 import GIFEncoder from "gif-encoder-2";
-import { createCanvas } from "canvas";
+import { createCanvas } from "canvas-prebuilt";
 import path from "path";
 
 const thumb = {
