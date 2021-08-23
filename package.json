@@ -1,7 +1,7 @@
 {
-  "name": "giffy-piccy",
+  "name": "giffypiccy",
   "version": "1.0.0",
-  "author": "BigJuice",
+  "author": "LinkDump",
   "description": "This program takes in PNGs and stiches them together into a GIF",
   "license": "MIT",
   "private": true,
@@ -41,7 +41,7 @@
       "package.json"
     ],
     "directories": {
-      "buildResources": "assets"
+      "buildResources": "build"
     },
     "win": {
       "target": "nsis"

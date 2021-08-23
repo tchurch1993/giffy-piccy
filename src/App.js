@@ -186,7 +186,8 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Dropzone onDrop={this.onDrop}>
+        <footer className="footer">
+        <Dropzone onDrop={this.onDrop } className="dropzone">
           {({ getRootProps, getInputProps }) => (
             <section className="container">
               <div {...getRootProps({ className: "dropzone" })}>
@@ -194,12 +195,12 @@ class App extends React.Component {
                 <p>Drag 'n' drop some files here, or click to select files</p>
               </div>
               <aside>
-                <h4>Files</h4>
                 <ol>{testFiles}</ol>
               </aside>
             </section>
           )}
         </Dropzone>
+        </footer>
         <img src={gif} alt="" />
         {gif !== "test" && (
           <ColorButton color="primary" onClick={this.createGif}>
