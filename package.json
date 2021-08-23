@@ -1,6 +1,6 @@
 {
   "name": "giffypiccy",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "author": "LinkDump",
   "description": "This program takes in PNGs and stiches them together into a GIF",
   "license": "MIT",
